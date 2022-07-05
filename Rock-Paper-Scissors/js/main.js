@@ -1,6 +1,16 @@
-function computerPlay(){
-    let options = ['rock', 'paper', 'scissors']
-    return (options[Math.floor(Math.random() *options.length)])
+let computerScore = 0;
+let playerScore = 0;
+let playerPoints = document.querySelector('#playerScore');
+let computerPoints = document.querySelector('#computerScore');
+
+const $options = document.querySelectorAll('.sign').forEach(function ($button) {
+    $button.onclick = handleSelections;
+});
+
+function handleSelections(event) {
+    const $button = event.target;
+    playerSelection = $button.innerText;
+    const computerSelection = computerPlay();
 }
 
 function playRound(playerSelection, computerSelection){
@@ -32,5 +42,7 @@ function playRound(playerSelection, computerSelection){
 
 }
 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
+function computerPlay() {
+    let options = ['rock', 'paper', 'scissors']
+    return (options[Math.floor(Math.random() * options.length)])
+}
