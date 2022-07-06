@@ -44,10 +44,14 @@ function playRound(playerSelection, computerSelection) {
             computerPoints.textContent = computerScore;
         if (computerScore == 5) {
             document.querySelector('#scoreMessage').innerText += ' \n You lost the game! Reload the page to play again.'
+            hideButtons()
         }
     }
 }
 
+function hideButtons() {
+    document.querySelector('#buttons').className = "hide"
+}
 
 function showSelection(playerSelection,computerSelection){
     document.querySelector('#playerSelection').textContent = 'Your selection: ' + playerSelection;
