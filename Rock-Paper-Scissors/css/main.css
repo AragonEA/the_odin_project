@@ -12,6 +12,41 @@ header{
 	margin: 5px;
 
 }
+.scores-container{
+display: flex;
+justify-content: center;
+
+}
+
+.selections{
+font-size: 20px;
+font-weight: bold;
+color: darkred;
+}
+
+.score-box{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.btn{
+	width: 125px;
+	border-color: transparent;
+	border-radius: 5px;
+	border-width: 1px;
+	background-color: darkred;
+
+}
+
+.sign{
+	font-size: xx-large;
+	color: gainsboro;
+}
+
+.hide{
+	display: none;
+}
+
 #playerLabel {
 	font-size: 20px;
 	font-weight: bold;
@@ -29,4 +64,21 @@ header{
 	color: darkred;
 	padding-left: 20px;
 	padding-right: 5px;
+}
+
+scores {
+	display: flex;
+	flex-direction: row;
+}
+
+.score {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 150px;
+	height: 50px;
+	border: 5px solid darkred;
+	border-radius: 5px;
+	font-weight: bolder;
+	font-size: 20px;
 }
