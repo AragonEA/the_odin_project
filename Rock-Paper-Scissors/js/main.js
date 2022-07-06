@@ -11,33 +11,41 @@ function handleSelections(event) {
     const $button = event.target;
     playerSelection = $button.innerText;
     const computerSelection = computerPlay();
+    playRound(playerSelection, computerSelection);
 }
 
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
 
- if (playerSelection ==='rock' && computerSelection === 'rock') {
-        return 'Tie. Both used Rock';
-    } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        return 'You lose!'
-    } else if ((playerSelection === 'rock' && computerSelection === 'scissors')) {
-        return'You win!'  
-    }
+    if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+        (playerSelection == 'scissors' && computerSelection == 'paper') ||
+        (playerSelection == 'paper' && computerSelection == 'rock')) {
 
-    if (playerSelection ==='paper' && computerSelection === 'paper'){
-        return'Tie. Both used Paper'
-    }else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        return 'You lose!'
-    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return'You win!'
+        playerScore += 1
+        
+        document.querySelector('#scoreMessage').innerText = ('You win! ' + playerSelection + ' beats ' + computerSelection);
+            playerPoints.textContent = playerScore;
+            computerPoints.textContent = computerScore;
+        if (playerScore == 5) {
+            document.querySelector('#scoreMessage').innerText += '\n You won the game! Reload the page to play again.'
+            hideButtons()
+        }
     }
-
-    if (playerSelection ==='scissors' && computerSelection === 'scissors'){
-       return 'Tie. Both used Scissors'
-    }else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        return'You lose!'
-    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return'You win!'
+    else if (playerSelection == computerSelection) {
+        document.querySelector('#scoreMessage').innerText = ('Tie. Both chose ' + playerSelection);
+        playerPoints.textContent = playerScore;
+        computerPoints.textContent = computerScore;
     }
+    else {
+        computerScore += 1
+        document.querySelector('#scoreMessage').innerText = ('You lose! ' + computerSelection + ' beats ' + playerSelection + '.');
+            playerPoints.textContent = playerScore;
+            computerPoints.textContent = computerScore;
+        if (computerScore == 5) {
+            document.querySelector('#scoreMessage').innerText += ' \n You lost the game! Reload the page to play again.'
+        }
+    }
+}
 
 
 }
