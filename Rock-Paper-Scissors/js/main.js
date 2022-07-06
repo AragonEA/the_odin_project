@@ -16,6 +16,7 @@ function handleSelections(event) {
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
+    showSelection(playerSelection,computerSelection);
 
     if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
         (playerSelection == 'scissors' && computerSelection == 'paper') ||
@@ -48,6 +49,9 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
+function showSelection(playerSelection,computerSelection){
+    document.querySelector('#playerSelection').textContent = 'Your selection: ' + playerSelection;
+    document.querySelector('#computerSelection').textContent = 'Computer selection: ' + computerSelection;
 }
 
 function computerPlay() {
