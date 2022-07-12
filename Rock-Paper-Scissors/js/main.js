@@ -4,7 +4,7 @@ let playerPoints = document.querySelector('#playerScore');
 let computerPoints = document.querySelector('#computerScore');
 
 const $options = document.querySelectorAll('.sign').forEach(function ($button) {
-    $button.onclick = handleSelections;
+    $button.addEventListener('click', handleSelections);
 });
 
 function handleSelections(event) {
