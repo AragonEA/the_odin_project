@@ -1,6 +1,7 @@
 :root {
 	--grid-cols: 1;
 	--grid-rows: 1;
+	--colorPicked: #000000;
 }
 
 body {
