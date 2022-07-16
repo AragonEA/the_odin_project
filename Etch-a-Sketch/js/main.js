@@ -1,5 +1,6 @@
 const container = document.getElementById("container");
 const colorPicker = document.querySelector("#colorpicker");
+const clearBtn = document.getElementById("clearBtn");
 let colorPicked = '#000000';
 
 makeRows(16, 16);
@@ -9,6 +10,11 @@ const gridItems = document.querySelectorAll('#container > div');
 colorPicker.addEventListener('change', (event) => {
   colorPicked = event.target.value;
 });
+
+clearBtn.addEventListener('click', () => {
+  gridItems.forEach((item) => {
+  item.style.backgroundColor = '#ffffff';
+  })});
 
 gridItems.forEach((item) => {
   item.addEventListener('mouseenter', (e) => {
