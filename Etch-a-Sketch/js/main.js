@@ -2,9 +2,8 @@ const container = document.getElementById("container");
 const colorPicker = document.querySelector("#colorpicker");
 
 colorPicker.addEventListener('change', (event) => {
-  let colorPicked = event.target.value;
-  let root = document.querySelector(':root');
-  root.style.setProperty('--colorPicked',colorPicked);
+  colorPicked = event.target.value;
+});
 });
 
 function makeRows(rows, columns) {
