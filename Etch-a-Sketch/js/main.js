@@ -11,14 +11,12 @@ function newGrid() {
   gridSize !== null && gridSize >= 10 && gridSize <= 100 ? makeRows(gridSize, gridSize) : alert("Invalid grid size.");
 }
 
-colorPicker.addEventListener('change', (event) => {
-  colorPicked = event.target.value;
-});
-
-clearBtn.addEventListener('click', () => {
-  gridItems.forEach((item) => {
-  item.style.backgroundColor = '#ffffff';
-  })});
+function deletePreviousGrid() {
+  const $gridItems = document.querySelectorAll('#container > div');
+  for (let i = 0; i < $gridItems.length; i++) {
+    $gridItems[i].remove();
+  }
+}
 
 gridItems.forEach((item) => {
   item.addEventListener('mouseenter', (e) => {
