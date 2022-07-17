@@ -26,10 +26,25 @@ function clearGrid(){
 }
 
 function makeRows(rows, columns) {
-  container.style.setProperty('--grid-rows', rows);
-  container.style.setProperty('--grid-cols', columns);
+
+  deletePreviousGrid();
+  $container.style.setProperty('--grid-rows', rows);
+  $container.style.setProperty('--grid-cols', columns);
+
   for (i = 0; i < (rows * columns); i++) {
     let cell = document.createElement("div");
-    container.appendChild(cell).className = "grid-item";
+    $container.appendChild(cell).className = "grid-item";
   };
+
+  const $gridItems = document.querySelectorAll('#container > div');
+  $gridItems.forEach((item) => {
+    item.addEventListener('mouseenter', (e) => {
+      e.target.style.backgroundColor = $colorPicked;
+    })
+  });
+  
 };
+
+$colorPicker.addEventListener('change', (event) => {
+  $colorPicked = event.target.value;
+});
