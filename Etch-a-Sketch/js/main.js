@@ -18,11 +18,12 @@ function deletePreviousGrid() {
   }
 }
 
-gridItems.forEach((item) => {
-  item.addEventListener('mouseenter', (e) => {
-    e.target.style.backgroundColor = colorPicked;
+function clearGrid(){
+  const $gridItems = document.querySelectorAll('#container > div');
+  $gridItems.forEach((item) => {
+    item.style.backgroundColor = '#ffffff';
   })
-});
+}
 
 function makeRows(rows, columns) {
   container.style.setProperty('--grid-rows', rows);
