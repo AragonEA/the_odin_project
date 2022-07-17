@@ -1,11 +1,15 @@
-const container = document.getElementById("container");
-const colorPicker = document.querySelector("#colorpicker");
-const clearBtn = document.getElementById("clearBtn");
-let colorPicked = '#000000';
+const $container = document.getElementById("container");
+const $colorPicker = document.querySelector("#colorpicker");
+const $clearBtn = document.getElementById("clearBtn");
+const $newGridBtn = document.getElementById("newGridBtn");
+let $colorPicked = '#000000';
+makeRows(16,16);
 
-makeRows(16, 16);
 
-const gridItems = document.querySelectorAll('#container > div');
+function newGrid() {
+  const gridSize = prompt("Enter new grid size (min: 10, max: 100)");
+  gridSize !== null && gridSize >= 10 && gridSize <= 100 ? makeRows(gridSize, gridSize) : alert("Invalid grid size.");
+}
 
 colorPicker.addEventListener('change', (event) => {
   colorPicked = event.target.value;
