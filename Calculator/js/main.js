@@ -2,11 +2,17 @@ class Calculator {
   constructor($previousOperand, $currentOperand) {
     this.$previousOperand = $previousOperand;
     this.$currentOperand = $currentOperand;
+    this.clear();
+  }
 
   clear() {
     this.currentOperand = '';
     this.previousOperand = '';
     this.operation = undefined;
+  }
+
+  delete() {
+    this.currentOperand = this.currentOperand.toString().slice(0, -1);
   }
 
   }
