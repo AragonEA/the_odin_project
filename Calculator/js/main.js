@@ -15,6 +15,11 @@ class Calculator {
     this.currentOperand = this.currentOperand.toString().slice(0, -1);
   }
 
+  appendNumber(number) {
+    if (number === '.' && this.currentOperand.includes('.')) return;
+    this.currentOperand = this.currentOperand.toString() + number.toString();
+  }
+
   updateDisplay() {
     this.$currentOperand.innerText =
       this.currentOperand;
@@ -37,6 +42,13 @@ const $previousOperand = document.querySelector("#previous-operand");
 const $currentOperand = document.querySelector("#current-operand");
 
 const calculator = new Calculator($previousOperand, $currentOperand);
+
+$numberButton.forEach(button => {
+  button.addEventListener('click', () => {
+    calculator.appendNumber(button.innerText);
+    calculator.updateDisplay();
+  })
+});
 
 $allClearButton.addEventListener('click', button => {
   calculator.clear();
