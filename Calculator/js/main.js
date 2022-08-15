@@ -15,6 +15,15 @@ class Calculator {
     this.currentOperand = this.currentOperand.toString().slice(0, -1);
   }
 
+  updateDisplay() {
+    this.$currentOperand.innerText =
+      this.currentOperand;
+    if (this.operation != null) {
+      this.$previousOperand.innerText =
+        `${this.previousOperand} ${this.operation}`;
+    } else {
+      this.$previousOperand.innerText = '';
+    }
   }
 }
 
@@ -29,3 +38,12 @@ const $currentOperand = document.querySelector("#current-operand");
 
 const calculator = new Calculator($previousOperand, $currentOperand);
 
+$allClearButton.addEventListener('click', button => {
+  calculator.clear();
+  calculator.updateDisplay();
+});
+
+$deleteButton.addEventListener('click', button => {
+  calculator.delete();
+  calculator.updateDisplay();
+});
