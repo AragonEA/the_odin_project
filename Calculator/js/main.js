@@ -20,6 +20,16 @@ class Calculator {
     this.currentOperand = this.currentOperand.toString() + number.toString();
   }
 
+  chooseOperation(operation) {
+    if (this.currentOperand === '') return;
+    if (this.previousOperand !== '') {
+      this.compute();
+    }
+    this.operation = operation;
+    this.previousOperand = this.currentOperand;
+    this.currentOperand = '';
+  }
+
   compute() {
     let computation;
     const prev = parseFloat(this.previousOperand);
@@ -73,6 +83,18 @@ $numberButton.forEach(button => {
     calculator.appendNumber(button.innerText);
     calculator.updateDisplay();
   })
+});
+
+$operatinButton.forEach(button => {
+  button.addEventListener('click', () => {
+    calculator.chooseOperation(button.innerText);
+    calculator.updateDisplay();
+  })
+});
+
+$equalsButton.addEventListener('click', button => {
+  calculator.compute();
+  calculator.updateDisplay();
 });
 
 $allClearButton.addEventListener('click', button => {
