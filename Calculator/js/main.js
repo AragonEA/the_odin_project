@@ -2,6 +2,13 @@ class Calculator {
   constructor($previousOperand, $currentOperand) {
     this.$previousOperand = $previousOperand;
     this.$currentOperand = $currentOperand;
+
+  clear() {
+    this.currentOperand = '';
+    this.previousOperand = '';
+    this.operation = undefined;
+  }
+
   }
 }
 
